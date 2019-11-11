@@ -12,3 +12,5 @@ router.get('/', restricted, (req, res) => {
       res.status(500).json({ err: "An error prevented the user information from being displayed." });
     });
 });
+
+module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const sessions = require('express-sessions');
+const sessions = require('express-session');
 const KnexSessionStores = require('connect-session-knex')(sessions);
 
 const Auth = require('../routes/auth/auth-router.js')
@@ -30,7 +30,7 @@ const sessionConfig = {
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
-server.use(session(sessionConfig));
+server.use(sessions(sessionConfig));
 
 server.use('/restricted/auth', Auth);
 server.use('/restricted/user', Users);
